@@ -22,4 +22,4 @@ function sqlFun(sql, arr, callback) {
   });
 }
 
-export default sqlFun
+export default sqlFun;
