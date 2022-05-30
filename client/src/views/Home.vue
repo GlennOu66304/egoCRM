@@ -54,7 +54,6 @@
 
 <script>
 import menuList from "../config/menuConfig";
-
 export default {
   name: "Home",
   data() {
@@ -84,7 +83,7 @@ export default {
   methods: {
     logout() {
       // save the token into the session
-      window.sessionStorage.clear();
+      window.localStorage.clear();
       // router push to the /home section
       this.$router.push("/");
     },

@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/index.js";
 import axios from "axios";
+import store from '../src/store/index'
 Vue.prototype.$axios = axios
 import {
   Form,
@@ -45,6 +46,7 @@ Vue.use(TableColumn);
 Vue.config.productionTip = false;
 
 new Vue({
+  store,
   router,
   render: (h) => h(App),
 }).$mount("#app");

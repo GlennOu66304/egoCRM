@@ -1,3 +1,39 @@
+## Vuex
+
+1.actions.js, mutation.js, index.js,getters.js reguler method;(Data type 1)
+
+Type1, no mapper(eleme, mixiu fourm)
+
+2.Module data (type2)
+
+2.1 store, add module folder
+
+2.2.Add the main file
+
+2.3. add state, mutations,actions into the main.s
+
+object nested objected
+
+2.4. change the index.js file
+
+2.5 use the mapper in the component, like mapper methods
+
+[模块化管理 mapper](https://juejin.cn/post/6981329984811958280#heading-2)
+
+3.Mappper in the two type of method
+
+3.1 in the mail.js file 
+
+objected nested obeject
+
+then export it
+
+[模块化管理 mapper](https://juejin.cn/post/6981329984811958280#heading-2)
+
+
+
+Regular mapper:[一、普通映射](https://blog.csdn.net/qq_44317018/article/details/119858568)
+
 ## Goal
 
 1.Login API

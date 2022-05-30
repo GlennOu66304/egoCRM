@@ -46,6 +46,8 @@
 </template>
 
 <script>
+// import store from "../store/index";
+import { mapMutations } from "vuex";
 export default {
   name: "Login",
   data() {
@@ -81,6 +83,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations("loginModule", ["setUser"]),
     submitForm() {
       this.$refs.loginFormRef.validate(async (valid) => {
         // test the submited value
@@ -100,15 +103,20 @@ export default {
 
         // login failed
 
-        if (res.meta.status !== 200) {
+        if (res.status !== 200) {
           console.log("login failed");
           return;
         }
         // login success
-        // console.log("login success");
-
+        // 1. get a object of the data
+        const obj = {
+          user: res.status,
+          token: res.token,
+        };
+        // 2. update it ininto the vuex section
+        this.setUser(obj);
         // save the token into the session
-        window.sessionStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("token", res.token);
         // router push to the /home section
         this.$router.push("/home");
       });
