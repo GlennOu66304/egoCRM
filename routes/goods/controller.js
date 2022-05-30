@@ -20,9 +20,9 @@ export default {
       // console.log(data) // print the output of the const sqlLen
       let len = data.length; // toal number on the pagination
       const sql =
-      // space offset and " there is a space
-        "select * from sp_attribute order by attr_id desc limit 8 offset " + (page - 1) * 8;
-        
+        // space offset and " there is a space
+        "select * from sp_attribute order by attr_id desc limit 8 offset " +
+        (page - 1) * 8;
 
       sqlFn(sql, null, (result) => {
         // condition check if the output value is 0, then return 0 otherwise, res.send out data
@@ -34,11 +34,10 @@ export default {
             pagesise: 8,
             total: len,
           });
-          
-        } else{
+        } else {
           res.send({
             status: 403,
-            msg:"no data send back"
+            msg: "no data send back",
           });
         }
       });
