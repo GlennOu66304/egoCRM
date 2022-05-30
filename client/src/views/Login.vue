@@ -46,8 +46,8 @@
 </template>
 
 <script>
-// import store from "../store/index";
 import { mapMutations } from "vuex";
+import jwt_decode from "jwt-decode";
 export default {
   name: "Login",
   data() {
@@ -109,14 +109,16 @@ export default {
         }
         // login success
         // 1. get a object of the data
+        const decode = jwt_decode(res.token);
+        // console.log(decode)
         const obj = {
-          user: res.status,
+          user: decode.username, // decode the token, then get the user name
           token: res.token,
         };
         // 2. update it ininto the vuex section
         this.setUser(obj);
         // save the token into the session
-        window.localStorage.setItem("token", res.token);
+        window.localStorage.setItem("user", JSON.stringify(obj));
         // router push to the /home section
         this.$router.push("/home");
       });

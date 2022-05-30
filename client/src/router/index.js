@@ -33,11 +33,13 @@ const router = new VueRouter({
   //   base: process.env.BASE_URL,
   routes,
 });
-
+import store from "../store/index";
 // private router guard
 router.beforeEach((to, from, next) => {
   // condition check, if the local storage has the jwt_token
-  const isLogin = window.localStorage.token ? true : false;
+  // const isLogin = window.localStorage.token ? true : false;
+  // change the local storage to the vuex check the state
+  const isLogin = store.state.loginModule.userInfo.token ? true : false;
 
   //if the router path is login, then just head to the login path
   if (to.path == "/login") {

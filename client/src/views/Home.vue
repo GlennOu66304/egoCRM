@@ -77,7 +77,7 @@ export default {
   },
 
   created() {
-    console.log(menuList);
+    // console.log(menuList);
   },
 
   methods: {

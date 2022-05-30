@@ -2,8 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/index.js";
 import axios from "axios";
-import store from '../src/store/index'
-Vue.prototype.$axios = axios
+import store from "../src/store/index";
+Vue.prototype.$axios = axios;
 import {
   Form,
   FormItem,
@@ -14,7 +14,6 @@ import {
   Aside,
   Menu,
   Submenu,
- 
   MenuItem,
   Main,
   Header,
@@ -44,6 +43,12 @@ Vue.use(DropdownItem);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.config.productionTip = false;
+// persist login
+let user = localStorage.getItem("user");
+if (user) {
+  user = JSON.parse(user);
+  store.commit("loginModule/setUser", user);
+}
 
 new Vue({
   store,
